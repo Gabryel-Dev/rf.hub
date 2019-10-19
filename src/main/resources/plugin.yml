@@ -1,0 +1,17 @@
+name: FocusHub
+main: com.redefocus.hub.FocusHub
+version: 1.0-SNAPSHOT
+
+commands:
+  gamemode:
+    description: 'Change your gamemode or of an player'
+    aliases:
+      - 'gm'
+  fly:
+    description: 'Enable fly for you or an player'
+  ping:
+    description: 'Show your ping'
+  setspawn:
+    description: 'Set player\'s spawn point'
+  tp:
+    description: 'Teleport to an player'

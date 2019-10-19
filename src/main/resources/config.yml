@@ -1,0 +1,49 @@
+# Perissões
+#
+# - /fly - redefocus.commands.fly
+# - /gamemode - redefocus.commands.gamemode
+# - /tp - redefocus.commands.teleport
+# - /ping - redefocus.commands.ping
+# - /setspawn - redefocus.commands.setspawn
+#
+
+settings:
+  spawn: '{"world":"world", "x": 0.0, "y": 4.0, "z": 0.0, "pitch": 0.0, "yaw": 0.0}'
+  shop_url: ''
+  tablist:
+    header:
+      - '§c§lREDE FOCUS'
+    footer:
+      - '§c${shop_url}'
+  chat:
+    format: '${username}&f: ${message}'
+    permission: 'redefocus.chat.say'
+    # Delay em segundos
+    cooldown: 0
+    bypass_permission: 'redefocus.chat.staff.cooldown.bypass'
+  items:
+    shop:
+      slot: 1
+    servers:
+      slot: 4
+      icon:
+        id: 1
+        data: 0
+        display_name: '&bSelecionar servidor'
+        lore:
+          - 'Lore 1'
+          - 'Lore 2'
+    figth:
+      slot: 7
+
+servers:
+  # Põe aqui da maneira q tá regitrado no bungee
+  factions_one:
+    display_name: '§bFactions One'
+    description:
+      - 'Porra caralho'
+      - 'Buceta'
+    slots: 300
+    icon:
+      id: 1
+      data: 0

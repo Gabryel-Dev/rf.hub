@@ -1,0 +1,57 @@
+package com.redefocus.hub.tablist.managers;
+
+import com.comphenix.protocol.reflect.FieldAccessException;
+import com.redefocus.hub.FocusHub;
+import net.minecraft.server.v1_8_R3.EntityPlayer;
+import net.minecraft.server.v1_8_R3.IChatBaseComponent;
+import net.minecraft.server.v1_8_R3.PacketPlayOutPlayerListHeaderFooter;
+import net.minecraft.server.v1_8_R3.PlayerConnection;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
+import org.bukkit.entity.Player;
+
+import java.lang.reflect.Field;
+
+public class TablistManager {
+    private static String header, footer;
+
+    public TablistManager() {
+        StringBuilder header = new StringBuilder();
+
+        ConfigurationSection configurationSection = FocusHub.getInstance().getConfig().getConfigurationSection("settings.tablist");
+
+        configurationSection.getStringList("header").forEach(line -> header.append(line).append("\n"));
+
+        TablistManager.header = header.toString();
+
+        StringBuilder footer = new StringBuilder();
+
+        configurationSection.getStringList("footer").forEach(line -> footer.append(line).append("\n"));
+
+        TablistManager.footer = footer.toString();
+    }
+
+    public static void setTablist(Player player) {
+        CraftPlayer craftPlayer = (CraftPlayer) player;
+        EntityPlayer entityPlayer = craftPlayer.getHandle();
+        PlayerConnection playerConnection = entityPlayer.playerConnection;
+
+        IChatBaseComponent header = IChatBaseComponent.ChatSerializer.a("{'text': '" + TablistManager.header + "'}");
+        IChatBaseComponent footer = IChatBaseComponent.ChatSerializer.a("{'text': '" + TablistManager.footer + "'}");
+
+        PacketPlayOutPlayerListHeaderFooter packetPlayOutPlayerListHeaderFooter = new PacketPlayOutPlayerListHeaderFooter(header);
+
+        playerConnection.sendPacket(packetPlayOutPlayerListHeaderFooter);
+
+        try {
+            Field field = packetPlayOutPlayerListHeaderFooter.getClass().getDeclaredField("b");
+            field.setAccessible(true);
+            field.set(packetPlayOutPlayerListHeaderFooter, footer);
+        } catch (FieldAccessException | NoSuchFieldException
+                | IllegalAccessException exception) {
+            exception.printStackTrace();
+        } finally {
+            playerConnection.sendPacket(packetPlayOutPlayerListHeaderFooter);
+        }
+    }
+}
