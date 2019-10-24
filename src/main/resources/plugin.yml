@@ -12,6 +12,6 @@ commands:
   ping:
     description: 'Show your ping'
   setspawn:
-    description: 'Set player\'s spawn point'
-  tp:
+    description: 'Set server spawn point'
+  teleport:
     description: 'Teleport to an player'

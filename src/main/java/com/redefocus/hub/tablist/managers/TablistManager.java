@@ -6,6 +6,7 @@ import net.minecraft.server.v1_8_R3.EntityPlayer;
 import net.minecraft.server.v1_8_R3.IChatBaseComponent;
 import net.minecraft.server.v1_8_R3.PacketPlayOutPlayerListHeaderFooter;
 import net.minecraft.server.v1_8_R3.PlayerConnection;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
@@ -22,13 +23,29 @@ public class TablistManager {
 
         configurationSection.getStringList("header").forEach(line -> header.append(line).append("\n"));
 
-        TablistManager.header = header.toString();
+        TablistManager.header = StringUtils.replaceEach(
+                header.toString(),
+                new String[] {
+
+                },
+                new String[] {
+
+                }
+        );
 
         StringBuilder footer = new StringBuilder();
 
         configurationSection.getStringList("footer").forEach(line -> footer.append(line).append("\n"));
 
-        TablistManager.footer = footer.toString();
+        TablistManager.footer = StringUtils.replaceEach(
+                footer.toString(),
+                new String[] {
+                        "${shop_url}"
+                },
+                new String[] {
+                        FocusHub.getInstance().getConfig().getString("settings.shop_url")
+                }
+        );
     }
 
     public static void setTablist(Player player) {

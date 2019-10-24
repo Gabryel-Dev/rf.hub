@@ -2,6 +2,7 @@ package com.redefocus.hub.chat.listeners;
 
 import com.redefocus.hub.FocusHub;
 import com.redefocus.hub.chat.managers.ChatManager;
+import com.redefocus.hub.util.Helper;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -37,14 +38,12 @@ public class AsyncPlayerChatListener implements Listener {
                 StringUtils.replaceEach(
                         format,
                         new String[]{
-                                "&",
                                 "${prefix}",
                                 "${username}",
                                 "${message}"
                         },
                         new String[]{
-                                "§",
-                                "",
+                                Helper.getPrefix(player.getName()),
                                 player.getName(),
                                 message
                         }

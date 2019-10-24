@@ -16,7 +16,10 @@ settings:
     footer:
       - '§c${shop_url}'
   chat:
-    format: '${username}&f: ${message}'
+    tell:
+      to: '&8[Mensagem para ${prefix}${username}&8]: &6${message}'
+      from: '&8[Mensagem de ${prefix}${username}&8]: &6${message}'
+    format: '${prefix}${username}&f: ${message}'
     permission: 'redefocus.chat.say'
     # Delay em segundos
     cooldown: 0
@@ -39,11 +42,11 @@ settings:
 servers:
   # Põe aqui da maneira q tá regitrado no bungee
   factions_one:
-    display_name: '§bFactions One'
-    description:
-      - 'Porra caralho'
-      - 'Buceta'
-    slots: 300
+    slot: 13
     icon:
       id: 1
       data: 0
+      display_name: '§bFactions One'
+      lore:
+        - 'Porra caralho'
+        - 'Buceta'

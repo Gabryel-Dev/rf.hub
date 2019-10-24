@@ -1,5 +1,6 @@
 package com.redefocus.hub;
 
+import com.redefocus.hub.managers.StartManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class FocusHub extends JavaPlugin {
@@ -15,6 +16,10 @@ public class FocusHub extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
 
+        new StartManager();
+
+        this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
     }
 }
