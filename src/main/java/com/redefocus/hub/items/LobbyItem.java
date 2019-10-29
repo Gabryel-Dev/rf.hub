@@ -34,6 +34,8 @@ public enum LobbyItem {
     private final Integer slot;
 
     public static LobbyItem getLobbyItem(ItemStack itemStack) {
+        if (itemStack.getType() == Material.SKULL_ITEM) return LobbyItem.SHOP;
+
         for (LobbyItem lobbyItem : LobbyItem.values()) {
             if (lobbyItem.getIcon().isSimilar(itemStack)) return lobbyItem;
         }
