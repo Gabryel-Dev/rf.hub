@@ -5,6 +5,7 @@ import com.redefocus.hub.items.LobbyItem;
 import com.redefocus.hub.util.inventory.Item;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
 public class CombatPlayer {
@@ -65,9 +66,15 @@ public class CombatPlayer {
         playerInventory.clear();
 
         for (LobbyItem lobbyItem : LobbyItem.values()) {
+            ItemStack icon = lobbyItem.getIcon().clone();
+
+            Item item = new Item(icon);
+
+            if (lobbyItem == LobbyItem.SHOP) item.owner(player.getName());
+
             playerInventory.setItem(
                     lobbyItem.getSlot(),
-                    lobbyItem.getIcon()
+                    item.build()
             );
         }
     }
