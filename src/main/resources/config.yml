@@ -33,9 +33,6 @@ settings:
         id: 1
         data: 0
         display_name: '&bSelecionar servidor'
-        lore:
-          - 'Lore 1'
-          - 'Lore 2'
     figth:
       slot: 7
 
