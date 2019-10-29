@@ -15,6 +15,8 @@ public class CombatPlayer {
 
         PlayerInventory playerInventory = player.getInventory();
 
+        playerInventory.clear();
+
         playerInventory.setHelmet(
                 new Item(Material.DIAMOND_HELMET)
                 .build()
@@ -47,6 +49,8 @@ public class CombatPlayer {
                         .amount(4)
                         .build()
         );
+
+        player.updateInventory();
     }
 
     public void end() {

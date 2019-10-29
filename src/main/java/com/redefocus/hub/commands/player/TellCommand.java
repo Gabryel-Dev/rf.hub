@@ -1,4 +1,4 @@
-package com.redefocus.hub.commands.staff;
+package com.redefocus.hub.commands.player;
 
 import com.redefocus.hub.FocusHub;
 import com.redefocus.hub.util.Helper;
@@ -16,7 +16,7 @@ public class TellCommand implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        if (args.length > 2) {
+        if (args.length >= 2) {
             Player target = Bukkit.getPlayer(args[0]);
             String message = Helper.toMessage(Helper.removeFirst(args));
 
@@ -51,7 +51,10 @@ public class TellCommand implements CommandExecutor {
                             message
                     }
             ));
+            return true;
+        } else {
+            sender.sendMessage("§cUtilize /tell <usuário> <mensagem>.");
+            return true;
         }
-        return false;
     }
 }

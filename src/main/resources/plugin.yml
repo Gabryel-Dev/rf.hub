@@ -15,3 +15,8 @@ commands:
     description: 'Set server spawn point'
   teleport:
     description: 'Teleport to an player'
+  tell:
+    description: 'Send an private message to players'
+    aliases:
+      - 'msg'
+      - 'whisper'

@@ -3,6 +3,7 @@ package com.redefocus.hub.managers;
 import com.redefocus.hub.FocusHub;
 import com.redefocus.hub.chat.managers.ChatManager;
 import com.redefocus.hub.combat.manager.CombatPlayerManager;
+import com.redefocus.hub.commands.player.TellCommand;
 import com.redefocus.hub.commands.staff.*;
 import com.redefocus.hub.serverselector.manager.ServerManager;
 import com.redefocus.hub.tablist.managers.TablistManager;
@@ -46,6 +47,7 @@ class CommandManager {
         this.register("ping", new PingCommand());
         this.register("setspawn", new SetSpawnCommand());
         this.register("teleport", new TeleportCommand());
+        this.register("tell", new TellCommand());
     }
 
     private void register(String name, CommandExecutor command) {

@@ -15,12 +15,12 @@ public class ServerManager {
     public ServerManager() {
         ConfigurationSection configurationSection = FocusHub.getInstance().getConfig().getConfigurationSection("servers");
 
-        configurationSection.getKeys(true).forEach(key -> {
+        configurationSection.getKeys(false).forEach(key -> {
             Integer slot = configurationSection.getInt(key + ".slot");
-            Integer id = configurationSection.getInt(key + ".id");
-            Integer data = configurationSection.getInt(key + ".data");
-            String displayName = configurationSection.getString(key + ".display_name");
-            List<String> lore = configurationSection.getStringList(key + ".lore");
+            Integer id = configurationSection.getInt(key + ".icon.id");
+            Integer data = configurationSection.getInt(key + ".icon.data");
+            String displayName = configurationSection.getString(key + ".icon.display_name");
+            List<String> lore = configurationSection.getStringList(key + ".icon.lore");
 
             Server server = new Server(
                     key,

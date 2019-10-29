@@ -6,6 +6,7 @@ import com.redefocus.hub.items.LobbyItem;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -18,11 +19,17 @@ public class CombatPlayerItemInteractListener implements Listener {
 
         if (itemStack == null) return;
 
+        Action action = event.getAction();
+
+        if (action.name().contains("_RIGHT")) return;
+
         LobbyItem lobbyItem = LobbyItem.COMBAT;
         ItemStack icon = lobbyItem.getIcon();
 
         if (icon.isSimilar(itemStack)) {
-            CombatPlayer combatPlayer = CombatPlayerManager.add(player.getUniqueId());
+            CombatPlayerManager.add(player.getUniqueId());
+
+            CombatPlayer combatPlayer = CombatPlayerManager.get(player.getUniqueId());
 
             combatPlayer.start();
         }

@@ -23,7 +23,7 @@ public class PlayerLobbyItemInteractListener implements Listener {
 
             String url = FocusHub.getInstance().getConfig().getString("settings.shop_url");
 
-            if (lobbyItem == LobbyItem.SHOP) player.sendMessage("§eAcesse nossa loja em: §l" + url);
+            if (lobbyItem == LobbyItem.SHOP) player.sendMessage("§eAcesse nossa loja em: §n" + url);
 
             if (lobbyItem == LobbyItem.SERVERS) ServersInventory.open(player);
         }
