@@ -6,6 +6,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.Arrays;
 import java.util.List;
@@ -139,6 +140,17 @@ public class Item {
     public Item enchant(Enchantment enchantment, Integer level) {
         this.itemStack.addUnsafeEnchantment(enchantment, level);
 
+        return this;
+    }
+
+    /**
+     * @param owner
+     * @return Item
+     */
+    public Item owner(String owner) {
+        SkullMeta skullMeta = (SkullMeta) this.itemStack.getItemMeta();
+        skullMeta.setOwner(owner);
+        itemStack.setItemMeta(skullMeta);
         return this;
     }
 
