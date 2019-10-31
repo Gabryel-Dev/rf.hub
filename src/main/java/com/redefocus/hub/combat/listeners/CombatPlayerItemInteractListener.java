@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 
 public class CombatPlayerItemInteractListener implements Listener {
     @EventHandler
@@ -32,6 +33,13 @@ public class CombatPlayerItemInteractListener implements Listener {
             CombatPlayer combatPlayer = CombatPlayerManager.get(player.getUniqueId());
 
             combatPlayer.start();
+
+            PlayerInventory playerInventory = player.getInventory();
+
+            playerInventory.setItem(
+                    lobbyItem.getSlot(),
+                    lobbyItem.getIcon()
+            );
         }
     }
 }

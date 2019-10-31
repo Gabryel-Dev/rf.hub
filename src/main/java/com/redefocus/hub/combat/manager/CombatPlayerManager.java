@@ -5,9 +5,7 @@ import com.redefocus.hub.combat.data.CombatPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class CombatPlayerManager {
     private static HashMap<UUID, CombatPlayer> battling = Maps.newHashMap();
@@ -39,5 +37,17 @@ public class CombatPlayerManager {
         }
 
         return null;
+    }
+
+    public static Collection<Player> getPlayers() {
+        Collection<Player> players = Collections.emptyList();
+
+        CombatPlayerManager.battling.keySet().forEach(uuid -> {
+            Player player = Bukkit.getPlayer(uuid);
+
+            players.add(player);
+        });
+
+        return players;
     }
 }

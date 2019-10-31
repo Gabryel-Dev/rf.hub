@@ -16,6 +16,11 @@ public class PlayerJoinTeleportToSpawnListener implements Listener {
         Player player = event.getPlayer();
         PlayerInventory playerInventory = player.getInventory();
 
+        playerInventory.setHelmet(null);
+        playerInventory.setChestplate(null);
+        playerInventory.setLeggings(null);
+        playerInventory.setBoots(null);
+
         playerInventory.clear();
 
         player.teleport(SpawnManager.getSpawn());
