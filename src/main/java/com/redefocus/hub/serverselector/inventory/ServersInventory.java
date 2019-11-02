@@ -1,6 +1,6 @@
 package com.redefocus.hub.serverselector.inventory;
 
-import com.redefocus.hub.serverselector.manager.ServerManager;
+import com.redefocus.hub.servers.manager.ServerManager;
 import com.redefocus.hub.util.inventory.InventoryBuilder;
 import com.redefocus.hub.util.inventory.Item;
 import org.bukkit.entity.Player;

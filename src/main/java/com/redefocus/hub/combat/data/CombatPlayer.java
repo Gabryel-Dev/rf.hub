@@ -2,10 +2,11 @@ package com.redefocus.hub.combat.data;
 
 import com.redefocus.hub.combat.manager.CombatPlayerManager;
 import com.redefocus.hub.items.LobbyItem;
+import com.redefocus.hub.managers.SpawnManager;
 import com.redefocus.hub.util.inventory.Item;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
 public class CombatPlayer {
@@ -63,19 +64,21 @@ public class CombatPlayer {
 
         CombatPlayerManager.remove(player.getUniqueId());
 
+        playerInventory.setHelmet(null);
+        playerInventory.setChestplate(null);
+        playerInventory.setLeggings(null);
+        playerInventory.setBoots(null);
+
         playerInventory.clear();
 
-        for (LobbyItem lobbyItem : LobbyItem.values()) {
-            ItemStack icon = lobbyItem.getIcon().clone();
+        LobbyItem.giveItems(player);
 
-            Item item = new Item(icon);
+        Location location = SpawnManager.getSpawn();
 
-            if (lobbyItem == LobbyItem.SHOP) item.owner(player.getName());
+        player.teleport(location);
 
-            playerInventory.setItem(
-                    lobbyItem.getSlot(),
-                    item.build()
-            );
-        }
+        Double health = player.getMaxHealth();
+
+        player.setHealth(health);
     }
 }

@@ -27,6 +27,16 @@ public class CombatPlayerItemInteractListener implements Listener {
         LobbyItem lobbyItem = LobbyItem.COMBAT;
         ItemStack icon = lobbyItem.getIcon();
 
+        LobbyItem lobbyItem1 = LobbyItem.NO_COMBAT;
+        ItemStack icon1 = lobbyItem1.getIcon();
+
+        if (icon1.isSimilar(itemStack) && CombatPlayerManager.isBattling(player)) {
+            CombatPlayer combatPlayer = CombatPlayerManager.get(player.getUniqueId());
+
+            combatPlayer.end();
+            return;
+        }
+
         if (icon.isSimilar(itemStack)) {
             CombatPlayerManager.add(player.getUniqueId());
 
@@ -37,8 +47,8 @@ public class CombatPlayerItemInteractListener implements Listener {
             PlayerInventory playerInventory = player.getInventory();
 
             playerInventory.setItem(
-                    lobbyItem.getSlot(),
-                    lobbyItem.getIcon()
+                    lobbyItem1.getSlot(),
+                    lobbyItem1.getIcon()
             );
         }
     }

@@ -45,4 +45,16 @@ public class Helper {
     public static String getPrefix(String username) {
         return ChatColor.translateAlternateColorCodes('&', PermissionsEx.getUser(username).getPrefix());
     }
+
+    public static String getSuffix(String username) {
+        return ChatColor.translateAlternateColorCodes('&', PermissionsEx.getUser(username).getSuffix());
+    }
+
+    public static Integer getRank(String username) {
+        return PermissionsEx.getUser(username).getRank(Helper.getGroup(username));
+    }
+
+    public static String getGroup(String username) {
+        return PermissionsEx.getUser(username).getGroupNames()[0];
+    }
 }

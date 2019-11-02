@@ -19,6 +19,8 @@ public class SetSpawnCommand implements CommandExecutor {
             String serializedLocation = LocationSerialize.toString(location);
 
             FocusHub.getInstance().getConfig().set("settings.spawn", serializedLocation);
+            FocusHub.getInstance().saveConfig();
+
             SpawnManager.setSpawn(location);
 
             player.sendMessage("§eSpawn atualizado com sucesso.");

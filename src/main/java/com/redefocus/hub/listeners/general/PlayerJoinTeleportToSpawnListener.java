@@ -2,12 +2,13 @@ package com.redefocus.hub.listeners.general;
 
 import com.redefocus.hub.items.LobbyItem;
 import com.redefocus.hub.managers.SpawnManager;
-import com.redefocus.hub.util.inventory.Item;
+import com.redefocus.hub.managers.StartManager;
+import com.redefocus.hub.tags.managers.TagsManager;
+import com.redefocus.hub.util.Helper;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
 public class PlayerJoinTeleportToSpawnListener implements Listener {
@@ -25,17 +26,15 @@ public class PlayerJoinTeleportToSpawnListener implements Listener {
 
         player.teleport(SpawnManager.getSpawn());
 
-        for (LobbyItem lobbyItem : LobbyItem.values()) {
-            ItemStack icon = lobbyItem.getIcon().clone();
+        LobbyItem.giveItems(player);
 
-            Item item = new Item(icon);
+        TagsManager tagsManager = StartManager.getTagsManager();
 
-            if (lobbyItem == LobbyItem.SHOP) item.owner(player.getName());
-
-            playerInventory.setItem(
-                    lobbyItem.getSlot(),
-                    item.build()
-            );
-        }
+        tagsManager.setNametag(
+                player.getName(),
+                Helper.getPrefix(player.getName()),
+                Helper.getSuffix(player.getName()),
+                Helper.getRank(player.getName())
+        );
     }
 }
