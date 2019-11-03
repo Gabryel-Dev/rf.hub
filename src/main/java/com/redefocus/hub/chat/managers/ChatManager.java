@@ -5,6 +5,7 @@ import com.redefocus.hub.util.TimeFormatter;
 
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 public class ChatManager {
     private static HashMap<UUID, Long> cooldown = Maps.newHashMap();
@@ -14,7 +15,7 @@ public class ChatManager {
     }
 
     public static Long setCooldown(UUID uuid, Integer cooldown) {
-        return ChatManager.cooldown.put(uuid, (cooldown.longValue()+System.currentTimeMillis()));
+        return ChatManager.cooldown.put(uuid, (TimeUnit.SECONDS.toMillis(cooldown)+System.currentTimeMillis()));
     }
 
     public static Boolean hasCooldown(UUID uuid) {

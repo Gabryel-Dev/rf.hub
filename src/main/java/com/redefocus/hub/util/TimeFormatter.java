@@ -10,7 +10,7 @@ public class TimeFormatter {
         long hours = TimeUnit.MILLISECONDS.toHours(time) - (day * 24);
         long minutes = TimeUnit.MILLISECONDS.toMinutes(time) - (hours * 60);
         long seconds = TimeUnit.MILLISECONDS.toSeconds(time) - (minutes * 60);
-        long milliseconds = TimeUnit.MILLISECONDS.toMillis(time) - (seconds * 60);
+        long milliseconds = TimeUnit.MILLISECONDS.toMillis(time) - (seconds * 1000);
 
         StringBuilder sb = new StringBuilder();
 
@@ -24,7 +24,7 @@ public class TimeFormatter {
             sb.append(minutes).append("m").append(" ");
         }
         if (seconds > 0) {
-            sb.append(seconds).append("s");
+            sb.append(seconds).append("s").append(" ");
         }
         if (milliseconds > 0) {
             sb.append(milliseconds).append("ms");

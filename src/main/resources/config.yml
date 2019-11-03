@@ -1,4 +1,4 @@
-# Perissões
+# PerissÃµes
 #
 # - /fly - redefocus.commands.fly
 # - /gamemode - redefocus.commands.gamemode
@@ -14,37 +14,37 @@ settings:
   tablist:
     header:
       - ''
-      - '§6§lREDE FOCUS'
-      - '    §floja.redefocus.com'
+      - 'Â§6Â§lREDE FOCUS'
+      - '    Â§floja.redefocus.com'
     footer:
       - ''
-      - '§6§lREDES SOCIAIS'
-      - '      §6Twitter: §ftwitter.com/RedeFocusMC'
-      - '§6Discord: §fdiscord.redefocus.com'
+      - 'Â§6Â§lREDES SOCIAIS'
+      - '      Â§6Twitter: Â§ftwitter.com/RedeFocusMC'
+      - 'Â§6Discord: Â§fdiscord.redefocus.com'
   chat:
     tell:
-      to: '§8[Mensagem para ${prefix}${username}§8]: §6${message}'
-      from: '§8[Mensagem de ${prefix}${username}§8]: §6${message}'
-    format: '${prefix}${username}§f: ${message}'
+      to: 'Â§8[Mensagem para ${prefix}${username}Â§8]: Â§6${message}'
+      from: 'Â§8[Mensagem de ${prefix}${username}Â§8]: Â§6${message}'
+    format: '${prefix}${username}Â§f: ${message}'
     permission: 'redefocus.chat.say'
     # Delay em segundos
     cooldown: 0
     bypass_permission: 'redefocus.chat.staff.cooldown.bypass'
   scoreboard:
-    display_name: '§6§lREDE FOCUS'
+    display_name: 'Â§6Â§lREDE FOCUS'
     lines:
-      - '§1'
-      - '§f  Online: §b${network::online}'
-      - '§2'
-      - '§f   F. Legend: §a${legend::online}'
-      - '§f   R. OverPower: §a${rankup::online}'
-      - '§3'
-      - '§f  Hub: §7#1'
-      - '§4'
-    footer: '§7  loja.redefocus.com'
+      - 'Â§1'
+      - 'Â§f  Online: Â§b${network::online}'
+      - 'Â§2'
+      - 'Â§f   F. Legend: Â§a${legend::online}'
+      - 'Â§f   R. OverPower: Â§a${rankup::online}'
+      - 'Â§3'
+      - 'Â§f  Hub: Â§7#1'
+      - 'Â§4'
+    footer: 'Â§7  loja.redefocus.com'
 
 servers:
-  # Põe aqui da maneira q tá regitrado no bungee
+  # PÃµe aqui da maneira q tÃ¡ regitrado no bungee
   legend:
     display_name: 'Factions Legend'
     address: '127.0.0.1'
@@ -54,25 +54,25 @@ servers:
     icon:
       id: 46
       data: 0
-      display_name: '§bFactions Legend'
+      display_name: 'Â§bFactions Legend'
       lore:
         - ''
-        - ' §7Convoque sua facção, construa sua base'
-        - ' §7defenda-se de invasões adversárias'
-        - ' §7e realize suas própias invasões.'
+        - ' Â§7Convoque sua facÃ§Ã£o, construa sua base'
+        - ' Â§7defenda-se de invasÃµes adversÃ¡rias'
+        - ' Â§7e realize suas prÃ³pias invasÃµes.'
         - ''
-        - '   §6* §fEconomia Mediana.'
-        - '   §6* §fSistema de habilidades exclusivo'
-        - '   §6* §fSistema de mineração exclusivo'
-        - '   §6* §fSistema de missões exclusivo'
-        - '   §6* §fSistema de mobcoins exclusivo'
-        - '   §6* §fSistema de theend exclusivo'
-        - '   §6* §fSistema de facção exclusivo'
-        - '   §6* §fSistema de encantamentos exclusivo.'
-        - '   §6* §fCaixas Misteriosas exclusivas'
-        - '   §6* §fE muito Mais!'
+        - '   Â§6* Â§fEconomia Mediana.'
+        - '   Â§6* Â§fSistema de habilidades exclusivo'
+        - '   Â§6* Â§fSistema de mineraÃ§Ã£o exclusivo'
+        - '   Â§6* Â§fSistema de missÃµes exclusivo'
+        - '   Â§6* Â§fSistema de mobcoins exclusivo'
+        - '   Â§6* Â§fSistema de theend exclusivo'
+        - '   Â§6* Â§fSistema de facÃ§Ã£o exclusivo'
+        - '   Â§6* Â§fSistema de encantamentos exclusivo.'
+        - '   Â§6* Â§fCaixas Misteriosas exclusivas'
+        - '   Â§6* Â§fE muito Mais!'
         - ''
-        - '§aClique para entrar'
+        - 'Â§aClique para entrar'
   rankup:
     display_name: 'Rankup Over Power'
     address: '127.0.0.1'
@@ -82,24 +82,24 @@ servers:
     icon:
       id: 278
       data: 0
-      display_name: '§bRankUP OverPower'
+      display_name: 'Â§bRankUP OverPower'
       lore:
         - ''
-        - ' §7Convoque seu clan, conquiste seus'
-        - ' §7spawners, finalize todos ranks'
-        - ' §7e domine o servidor junto com seu clan!'
+        - ' Â§7Convoque seu clan, conquiste seus'
+        - ' Â§7spawners, finalize todos ranks'
+        - ' Â§7e domine o servidor junto com seu clan!'
         - ''
-        - '   §6* §fEconomia OP'
-        - '   §6* §fSistema de Crates exclusivo'
-        - '   §6* §fSistema de Ranks exclusivo'
-        - '   §6* §fSistema de Itens Edit exclusivo'
-        - '   §6* §fSistema de Maquinas exclusivo'
-        - '   §6* §fSistema de Spawners exclusivo'
-        - '   §6* §fSistema de Clan exclusivo'
-        - '   §6* §fSistema de encantamentos exclusivo.'
-        - '   §6* §fE muito Mais!'
+        - '   Â§6* Â§fEconomia OP'
+        - '   Â§6* Â§fSistema de Crates exclusivo'
+        - '   Â§6* Â§fSistema de Ranks exclusivo'
+        - '   Â§6* Â§fSistema de Itens Edit exclusivo'
+        - '   Â§6* Â§fSistema de Maquinas exclusivo'
+        - '   Â§6* Â§fSistema de Spawners exclusivo'
+        - '   Â§6* Â§fSistema de Clan exclusivo'
+        - '   Â§6* Â§fSistema de encantamentos exclusivo.'
+        - '   Â§6* Â§fE muito Mais!'
         - ''
-        - '§aClique para entrar'
+        - 'Â§aClique para entrar'
   empire:
     display_name: 'Factions Empire'
     address: '127.0.0.1'
@@ -109,23 +109,23 @@ servers:
     icon:
       id: 120
       data: 0
-      display_name: '§bFactions Empire OP'
+      display_name: 'Â§bFactions Empire OP'
       lore:
         - ''
-        - ' §7Convoque sua facção, construa sua base'
-        - ' §7defenda-se de invasões adversárias'
-        - ' §7e realize suas própias invasões.'
+        - ' Â§7Convoque sua facÃ§Ã£o, construa sua base'
+        - ' Â§7defenda-se de invasÃµes adversÃ¡rias'
+        - ' Â§7e realize suas prÃ³pias invasÃµes.'
         - ''
-        - '   §6* §fEconomia Mediana.'
-        - '   §6* §fMundo Customizado.'
-        - '   §6* §fSistema de habilidades exclusivo'
-        - '   §6* §fSistema de mineração exclusivo'
-        - '   §6* §fSistema de recompenças exclusivo'
-        - '   §6* §fSistema de missões exclusivo'
-        - '   §6* §fSistema de mobcoins exclusivo'
-        - '   §6* §fSistema de theend exclusivo'
-        - '   §6* §fSistema de facção exclusivo'
-        - '   §6* §fSistema de encantamentos exclusivo.'
-        - '   §6* §fCaixas Misteriosas exclusivas'
+        - '   Â§6* Â§fEconomia Mediana.'
+        - '   Â§6* Â§fMundo Customizado.'
+        - '   Â§6* Â§fSistema de habilidades exclusivo'
+        - '   Â§6* Â§fSistema de mineraÃ§Ã£o exclusivo'
+        - '   Â§6* Â§fSistema de recompenÃ§as exclusivo'
+        - '   Â§6* Â§fSistema de missÃµes exclusivo'
+        - '   Â§6* Â§fSistema de mobcoins exclusivo'
+        - '   Â§6* Â§fSistema de theend exclusivo'
+        - '   Â§6* Â§fSistema de facÃ§Ã£o exclusivo'
+        - '   Â§6* Â§fSistema de encantamentos exclusivo.'
+        - '   Â§6* Â§fCaixas Misteriosas exclusivas'
         - ''
-        - '§aClique para entrar'
+        - 'Â§aClique para entrar'

@@ -14,6 +14,8 @@ import org.bukkit.inventory.PlayerInventory;
 public class PlayerJoinTeleportToSpawnListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
+        event.setJoinMessage(null);
+
         Player player = event.getPlayer();
         PlayerInventory playerInventory = player.getInventory();
 

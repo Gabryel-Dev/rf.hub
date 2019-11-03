@@ -24,8 +24,7 @@ public class CombatPlayerDamageListener implements Listener {
             Player player = (Player) entity;
             Player player1 = (Player) damager;
 
-            if (!CombatPlayerManager.isBattling(player) || !CombatPlayerManager.isBattling(player1))
-                event.setCancelled(true);
+            if (!CombatPlayerManager.isBattling(player) || !CombatPlayerManager.isBattling(player1)) event.setCancelled(true);
         }
     }
 
@@ -40,12 +39,9 @@ public class CombatPlayerDamageListener implements Listener {
         Location location = player.getLocation();
         Location location1 = SpawnManager.getSpawn();
 
-        if (location.getY() <= 0) {
-            event.setCancelled(true);
-            event.setDamage(0.0);
+        if (location.getY() <= 0) player.teleport(location1);
 
-            player.teleport(location1);
-        }
+        if (event.getCause() == EntityDamageEvent.DamageCause.FALL) event.setCancelled(true);
 
         if (!CombatPlayerManager.isBattling(player)) event.setCancelled(true);
     }

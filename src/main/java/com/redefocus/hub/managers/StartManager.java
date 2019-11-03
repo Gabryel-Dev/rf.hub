@@ -81,7 +81,7 @@ class RunnableManager {
                 FocusHub.getInstance(),
                 new ScoreboardRefreshRunnable(),
                 0L,
-                10
+                20L*8
         );
     }
 }

@@ -15,6 +15,8 @@ public class CombatPlayerDeathListener implements Listener {
 
         event.setDroppedExp(0);
 
+        event.setDeathMessage(null);
+
         if (killer == null) return;
 
         event.setDeathMessage("§3" + player.getName() + " §cfoi morto por §3" + killer.getName());
