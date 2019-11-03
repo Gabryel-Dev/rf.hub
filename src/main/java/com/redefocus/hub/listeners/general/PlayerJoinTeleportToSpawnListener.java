@@ -32,6 +32,8 @@ public class PlayerJoinTeleportToSpawnListener implements Listener {
 
         TagsManager tagsManager = StartManager.getTagsManager();
 
+        tagsManager.sendTeams(player);
+
         tagsManager.setNametag(
                 player.getName(),
                 Helper.getPrefix(player.getName()),
