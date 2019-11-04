@@ -77,7 +77,7 @@ class RunnableManager {
                 0L,
                 20L * 5
         );
-        Bukkit.getScheduler().scheduleAsyncRepeatingTask(
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(
                 FocusHub.getInstance(),
                 new ScoreboardRefreshRunnable(),
                 0L,

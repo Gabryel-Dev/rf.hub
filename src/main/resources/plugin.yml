@@ -1,6 +1,9 @@
 name: FocusHub
 main: com.redefocus.hub.FocusHub
 version: 1.0-SNAPSHOT
+depend:
+  - 'nLogin'
+  - 'PermissionsEx'
 
 commands:
   gamemode:

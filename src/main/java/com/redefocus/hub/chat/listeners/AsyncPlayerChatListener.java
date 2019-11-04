@@ -14,10 +14,10 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 public class AsyncPlayerChatListener implements Listener {
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
-        event.setCancelled(true);
-
         Player player = event.getPlayer();
         String message = event.getMessage();
+
+        if (!message.startsWith("/")) event.setCancelled(true);
 
         ConfigurationSection section = FocusHub.getInstance().getConfig().getConfigurationSection("settings.chat");
 

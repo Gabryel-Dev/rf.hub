@@ -25,11 +25,29 @@ public class ScoreboardManager {
 
         String displayName = configurationSection.getString("display_name");
 
-        Scoreboard scoreboard = new Scoreboard(player, displayName);
+        Scoreboard scoreboard = new Scoreboard(player);
 
-        scoreboard.create();
+        scoreboard.setTitle(displayName);
 
-        ScoreboardManager.setLines(scoreboard);
+        List<String> lines = ScoreboardManager.getLines();
+
+        for (int i = 0; i < lines.size(); i++) {
+            String line = lines.get(i);
+
+            scoreboard.addLine(
+                    (i+1),
+                    line
+            );
+        }
+
+        String footer = configurationSection.getString("footer");
+
+        scoreboard.addLine(
+                0,
+                footer
+        );
+
+        scoreboard.apply();
 
         ScoreboardManager.scoreboards.put(
                 player.getUniqueId(),
@@ -51,11 +69,41 @@ public class ScoreboardManager {
     private static void setLines(Scoreboard scoreboard) {
         ConfigurationSection configurationSection = FocusHub.getInstance().getConfig().getConfigurationSection("settings.scoreboard");
 
-        List<String> lines = configurationSection.getStringList("lines");
+        List<String> lines = ScoreboardManager.getLines();
 
         for (int i = 0; i < lines.size(); i++) {
             String line = lines.get(i);
 
+            scoreboard.updateLine(
+                    (i+1),
+                    line
+            );
+        }
+
+        String footer = configurationSection.getString("footer");
+
+        scoreboard.updateLine(
+                0,
+                footer
+        );
+    }
+
+    public static void refresh() {
+        if (ScoreboardManager.players.isEmpty()) players.addAll(Bukkit.getOnlinePlayers());
+
+        Player player = ScoreboardManager.players.poll();
+
+        if (player != null && player.isOnline()) ScoreboardManager.updateScoreboard(player);
+    }
+
+    private static List<String> getLines() {
+        List<String> lines = Lists.newArrayList();
+
+        ConfigurationSection configurationSection = FocusHub.getInstance().getConfig().getConfigurationSection("settings.scoreboard");
+
+        List<String> lines1 = configurationSection.getStringList("lines");
+
+        lines1.forEach(line -> {
             if (line.contains("::")) {
                 String[] parts = line.split("\\$\\{");
 
@@ -70,28 +118,21 @@ public class ScoreboardManager {
                                     "${" + serverName + "::online}"
                             },
                             new String[]{
-                                    server.getPlayerCount().toString()
+                                    (
+                                            server.isOnline()
+                                            ?
+                                                    server.getPlayerCount().toString()
+                                            :
+                                                    "§cOffline"
+                                    )
                             }
                     );
                 }
             }
 
-            scoreboard.setLine(
-                    i,
-                    line
-            );
-        }
+            lines.add(line);
+        });
 
-        String footer = configurationSection.getString("footer");
-
-        scoreboard.setLine(14, footer);
-    }
-
-    public static void refresh() {
-        if (ScoreboardManager.players.isEmpty()) players.addAll(Bukkit.getOnlinePlayers());
-
-        Player player = ScoreboardManager.players.poll();
-
-        if (player != null && player.isOnline()) ScoreboardManager.updateScoreboard(player);
+        return lines;
     }
 }

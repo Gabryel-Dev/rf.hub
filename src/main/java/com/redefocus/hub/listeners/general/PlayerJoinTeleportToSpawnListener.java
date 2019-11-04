@@ -3,6 +3,7 @@ package com.redefocus.hub.listeners.general;
 import com.redefocus.hub.items.LobbyItem;
 import com.redefocus.hub.managers.SpawnManager;
 import com.redefocus.hub.managers.StartManager;
+import com.redefocus.hub.scoreboard.manager.ScoreboardManager;
 import com.redefocus.hub.tags.managers.TagsManager;
 import com.redefocus.hub.util.Helper;
 import org.bukkit.entity.Player;
@@ -40,5 +41,7 @@ public class PlayerJoinTeleportToSpawnListener implements Listener {
                 Helper.getSuffix(player.getName()),
                 Helper.getRank(player.getName())
         );
+
+        ScoreboardManager.createScoreboard(player);
     }
 }

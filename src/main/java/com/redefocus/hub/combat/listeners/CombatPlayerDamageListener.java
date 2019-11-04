@@ -3,6 +3,7 @@ package com.redefocus.hub.combat.listeners;
 import com.redefocus.hub.combat.manager.CombatPlayerManager;
 import com.redefocus.hub.managers.SpawnManager;
 import org.bukkit.Location;
+import org.bukkit.entity.Animals;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -16,6 +17,8 @@ public class CombatPlayerDamageListener implements Listener {
     public void onDamage(EntityDamageByEntityEvent event) {
         Entity entity = event.getEntity();
         Entity damager = event.getDamager();
+
+        if (!this.isAllowed(entity)) event.setCancelled(true);
 
         if (entity.getType() == EntityType.PLAYER && damager.getType() == EntityType.PLAYER) {
 
@@ -45,4 +48,6 @@ public class CombatPlayerDamageListener implements Listener {
 
         if (!CombatPlayerManager.isBattling(player)) event.setCancelled(true);
     }
+
+    private Boolean isAllowed(Entity entity) { return entity instanceof Player || entity instanceof Animals; }
 }

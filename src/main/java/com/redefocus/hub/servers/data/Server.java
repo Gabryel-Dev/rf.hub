@@ -30,7 +30,7 @@ public class Server {
     public void send(Player player) {
         ByteArrayDataOutput byteArrayDataOutput = ByteStreams.newDataOutput();
 
-        byteArrayDataOutput.writeUTF("connect");
+        byteArrayDataOutput.writeUTF("Connect");
         byteArrayDataOutput.writeUTF(name);
 
         player.sendPluginMessage(FocusHub.getInstance(), "BungeeCord", byteArrayDataOutput.toByteArray());
@@ -53,4 +53,6 @@ public class Server {
                 }
         );
     }
+
+    public Boolean isOnline() { return this.status; }
 }
